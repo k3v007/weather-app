@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.css' type='text/css' />
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <hr>
+        <div id="map"></div>
+        <div id="weather">
+            <img id="loading" src="/img/loading.gif" alt="Loading...">
+            <div id="report">
+                <div>
+                    <h2>Wednesday, 2:28 pm</h3>
+                    <h3>Haze</h3>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div id="temperature">
+                            <img id="weather-img" src="/img/darksky-icons/partly-cloudy-day.png" alt="Not found">
+                            <span><span>25</span><sup style="font-size:25px; font-weight:normal">°C</sup></span>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div id="details">
+                            <div>Precipitation:&nbsp<span>0</span>%</div>
+                            <div>Humidity:&nbsp<span>0</span>%</div>
+                            <div>Wind:&nbsp<span>0</span>&nbspkm/h</div>    
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- config json -->
+    <script src="/js/config.js"></script>
+    <!-- Moment script -->
+    <script src="/js/moment/moment.min.js"></script>
+    <!-- Mapbox scripts -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.min.js'></script>
+    <!-- Custom script -->
+    <script type="text/javascript" src="/js/mapbox-map.js"></script>
+</body>
+</html>
