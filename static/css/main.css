@@ -64,7 +64,7 @@ hr {
     flex: 60%;
 }
 
-.column:nth-child(2){
+.column:nth-child(2) {
     flex: 40%;
 }
 
@@ -81,6 +81,16 @@ hr {
     font-weight: bold;
 }
 
-#details{
+#details {
     float: right;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 30px 10px;
+    }
+
+    #details {
+        float: none;
+    }
 }
