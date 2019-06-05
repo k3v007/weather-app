@@ -1,5 +1,4 @@
-
-mapboxgl.accessToken = config.MAPBOX_API_KEY;
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF6eWtldiIsImEiOiJjandnNWR0dngxYnphNDhvODdtc3oxb2d0In0.8jL87EEGCfRkiZZ6XjHAxA';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -21,7 +20,7 @@ map.addControl(new mapboxgl.GeolocateControl({
         timeout: 5000
     },
     fitBoundsOptions: {
-        maxZoom: 18
+        maxZoom: 14
     },
     trackUserLocation: true
 }).on('geolocate', (position) => {
@@ -61,7 +60,7 @@ function fetchWeather(coords) {
     loading.style.display = 'block';
     report.style.display = 'none'
 
-    fetch(`http://127.0.0.1:3000/weather?lat=${lat}&lng=${lng}`)
+    fetch(`/weather?lat=${lat}&lng=${lng}`)
         .then(response => response.json())
         .then(data => {
             loading.style.display = 'none';
