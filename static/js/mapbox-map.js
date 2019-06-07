@@ -1,15 +1,25 @@
+// first location to show on loading of map - New Delhi (default)
+var inital_coords = {
+    lng: 77.216721,
+    lat: 28.644800    
+}
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibGF6eWtldiIsImEiOiJjandnNWR0dngxYnphNDhvODdtc3oxb2d0In0.8jL87EEGCfRkiZZ6XjHAxA';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     doubleClickZoom: false,
-    center: [77.216721, 28.644800],
+    center: Object.values(inital_coords),
     zoom: 9
 });
 
+// add marker
 var marker = new mapboxgl.Marker()
-    .setLngLat([77.216721, 28.644800])
+    .setLngLat(inital_coords)
     .addTo(map)
+
+// get weather for default location
+fetchWeather()
 
 var pos
 
@@ -29,7 +39,7 @@ map.addControl(new mapboxgl.GeolocateControl({
     fetchWeather(pos);
 }), position = 'bottom-right');
 
-// add geocode control
+// add geocode control - forward geocoding
 map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
@@ -43,13 +53,15 @@ map.addControl(new MapboxGeocoder({
 // add navigation control
 map.addControl(new mapboxgl.NavigationControl(), position = 'bottom-right');
 
+// add click behaviour
 map.on('click', (e) => {
     pos = e.lngLat
     marker.setLngLat(pos);
     fetchWeather(pos)
 });
 
-function fetchWeather(coords) {
+// get weather
+function fetchWeather(coords = inital_coords) {
     // console.log(coords)
     lat = coords.lat;
     lng = coords.lng;
