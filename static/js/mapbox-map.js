@@ -21,8 +21,7 @@ map.addControl(new mapboxgl.GeolocateControl({
     },
     fitBoundsOptions: {
         maxZoom: 14
-    },
-    trackUserLocation: true
+    }
 }).on('geolocate', (position) => {
     pos = mapboxgl.LngLat.convert([position.coords.longitude, position.coords.latitude]);
     marker.setLngLat(pos);
@@ -51,6 +50,7 @@ map.on('click', (e) => {
 });
 
 function fetchWeather(coords) {
+    // console.log(coords)
     lat = coords.lat;
     lng = coords.lng;
     
