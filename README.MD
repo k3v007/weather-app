@@ -14,4 +14,4 @@
     npm run dev
 ```
 
-<iframe src="https://weather-app-kev.herokuapp.com/"  style="display:block; width:450px; height:695px; border:1px solid grey; margin: 0 auto"></iframe>
+**App:** *https://weather-app-kev.herokuapp.com/*
